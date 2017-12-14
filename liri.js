@@ -48,3 +48,49 @@ function getTweets () {
       });
 };
 
+//Spotify //----------------------------------------------
+//keys
+/*
+     * Artist(s)
+     
+     * The song's name
+     
+     * A preview link of the song from Spotify
+     
+     * The album that the song is from
+*/
+//---------------------------------------------
+//omdb 
+
+//prompt fxn
+//promise with request fxn 
+//get api key 
+//check activity for format
+/*   ```
+       * Title of the movie.
+       * Year the movie came out.
+       * IMDB Rating of the movie.
+       * Rotten Tomatoes Rating of the movie.
+       * Country where the movie was produced.
+       * Language of the movie.
+       * Plot of the movie.
+       * Actors in the movie.
+   */
+//-----------------------------
+
+var fs = require("fs");
+
+function doWhatItSays (){
+  fs.readFile("random.txt", "utf8", function(error, data) {
+    if (error) {
+      return console.log(error);
+    }
+
+    else {
+    var dataArr = data.split(",");
+      if (dataArr[0] === "my-tweet"){
+        getTweets()
+      }
+    
+  });//end of fs.readFile
+};
