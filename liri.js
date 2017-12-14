@@ -1,16 +1,5 @@
-/*Make it so liri.js can take in one of the following commands:
-
-   * `my-tweets`
-
-   * `spotify-this-song`
-
-   * `movie-this`
-
-   * `do-what-it-says`
-   */
-
 var inquirer = require("inquirer");
-
+// Create a "Prompt" with a series of questions.
 inquirer
   .prompt([
     {
@@ -46,3 +35,16 @@ var client = new Twitter({
   access_token_key: keys.access_token_key,
   access_token_secret: keys.access_token_secret,
 });
+
+function getTweets () {
+  var params = {BigBallerAdeel: 'nodejs'};
+  client.get('statuses/user_timeline', params, function(error, tweets, response) {
+      if (!error) {
+        for (i=0; i<tweets.length; i++){
+          var eachtweettext = tweets[i].text;
+          console.log(eachtweettext)
+        };
+      };
+      });
+};
+
